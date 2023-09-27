@@ -1,58 +1,71 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <div class="bg-light text-black">新規会員登録</div>
+      <div class="col-3 bg-light text-black">新規会員登録</div>
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
-      <%= render "public/shared/error_messages", resource: resource %>
-      <table class="table">
-         <tr>
-          <th scope="row">名前</th>
-          <td>(姓)</td>
-          <td><%= f.text_field :last_name %></td>
-          <td>(名)</td>
-          <td><%= f.text_field :first_name %></td>
-         </tr>
-         <tr>
-          <th scope="row">フリガナ</th>
-          <td>(セイ)</td>
-          <td><%= f.text_field :last_name_kana %></td>
-          <td>(メイ)</td>
-          <td><%= f.text_field :first_name_kana %></td>
-         </tr>
-         <tr>
-          <th scope="row">メールアドレス</th>
-          <td><br></td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-         </tr>
-         <tr>
-          <th scope="row">郵便番号(ハイフンなし)</th>
-          <td><br></td>
-          <td><%= f.text_field :postal_code %></td>
-         </tr>
-         <tr>
-          <th scope="row">住所</th>
-          <td><br></td>
-          <td><%= f.text_field :address %></td>
-         </tr>
-         <tr>
-          <th scope="row">電話番号(ハイフンなし)</th>
-          <td><br></td>
-          <td><%= f.text_field :telephone_number %></td> 
-         </tr>
-         <tr>
-          <th scope="row">パスワード(6文字以上)</th>
-          <td><br></td>
-          <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-         </tr>
-         <tr>
-          <th scope="row">パスワード(確認用)</th>
-          <td><br></td>
-          <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-         </tr>
-     </table>
-     <button class="btn btn-success">新規登録</button>
+      <%= render "public/shared/error_messages", resource: resource %><br>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-2">名前</div>
+        <div class="col-1">(姓)</div>
+        <div class="col-4"><%= f.text_field :last_name %></div>
+        <div class="col-1">(名)</div>
+        <div class="col-4"><%= f.text_field :first_name %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-2">フリガナ</div>
+        <div class="col-1">(セイ)</div>
+        <div class="col-4"><%= f.text_field :last_name_kana %></div>
+        <div class="col-1">(メイ)</div>
+        <div class="col-4"><%= f.text_field :first_name_kana %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">メールアドレス</div>
+        <div class="col-4"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">郵便番号(ハイフンなし)</div>
+        <div class="col-4"><%= f.text_field :postal_code %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">住所</div>
+        <div class="col-9"><%= f.text_field :address %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">電話番号(ハイフンなし)</div>
+        <div class="col-4"><%= f.text_field :telephone_number %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">パスワード(6文字以上)</div>
+        <div class="col-4"><%= f.password_field :password, autocomplete: "new-password" %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-3">パスワード(確認用)</div>
+        <div class="col-4"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-4 offset-3"><button class="btn btn-success btn-block">新規登録</button></div>
+       </div>
+      </div>
+     
      <% end %>
-     <div class="bg-light text-black">既に登録済の方</div>
+     <div class="col-4 bg-light text-black">既に登録済の方</div>
      <%= link_to "こちら","public/shared/links" %>からログインしてください。
      <%= render "public/shared/links" %>
     </div>
