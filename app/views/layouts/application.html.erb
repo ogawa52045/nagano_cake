@@ -10,7 +10,46 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
+  <header>
+    <nav class= "navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+        <span>ながのCAKE</span>
+        </a>
+    　<button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+    　  <span class="navbar-toggler-icon"></span>
+    　</button>
+    　<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    　  <ul class="navbar-nav ml-auto">
+    　    <% if customer_signed_in? %>
+    　    <li class="nav-item">
+     　   <a class="nav-link text-dark" rel="nofollow" data-method="delete" href="/customers/sign_out">
+     　　  ログアウト   
+     　   </a>
+    　    </li>
+    　   <% else %>
+    　   <li class="nav-item">
+    　     <a class="nav-link text-dark" href="/about">
+    　       About
+    　     </a>
+    　   </li>
+    　   <li class="nav-item">
+    　     <a class="nav-link text-dark" href="<%= new_customer_registration_path %>">
+    　       新規登録
+    　     </a>
+    　   </li>
+    　   <li class="nav-item">
+    　     <a class="nav-link text-dark" href="<%= new_customer_session_path %>">
+    　       ログイン
+    　     </a>
+    　   </li>
+    　   <% end %>
+    　  </ul>
+    　</div>
+     </div>
+    </nav>
+  </header>
     <%= yield %>
   </body>
 </html>
