@@ -1,0 +1,31 @@
+<br>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="mx-auto">
+   <div class="col-6 bg-light text-black">商品一覧</div><br>
+   <%= @items.each do |item| %>
+   <div class="table-group">
+    <div class="col-10">
+     <table class="table table-borderless">
+      <thead class="thead-light">
+       <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+        </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>  

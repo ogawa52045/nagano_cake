@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    resources :items, only: [:index, :show]
+  end
+  
+  namespace :admin do
+    resources :items, only: [:new, :create, :index, :show, :edit]
+  end
+  
   devise_for :admin, skip: [:registrations, :passwords],  controllers: {
     sessions: "admin/sessions"
   }
