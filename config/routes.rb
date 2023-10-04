@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get 'top' => 'homes#top'
   get 'about' => 'homes#about'
   
+  resources :items, only: [:create]
+
 end
