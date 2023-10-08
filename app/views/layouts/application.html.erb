@@ -24,9 +24,25 @@
     　  <ul class="navbar-nav ml-auto">
     　    <% if customer_signed_in? %>
     　    <li class="nav-item">
+    　     <a class="nav-link text-dark" href="<%=items_path  %>">
+    　       商品一覧
+    　     </a>
+    　    </li>
+    　    <li class="nav-item">
      　   <a class="nav-link text-dark" rel="nofollow" data-method="delete" href="/customers/sign_out">
      　　  ログアウト   
      　   </a>
+    　    </li>
+    　    <% elsif admin_signed_in? %>
+    　    <li class="nav-item">
+    　     <a class="nav-link text-dark" href="<%=admin_items_path  %>">
+    　       商品一覧
+    　     </a>
+    　    </li>
+    　    <li class="nav-item">
+     　    <a class="nav-link text-dark" rel="nofollow" data-method="delete" href="/admin/sign_out">
+     　  　  ログアウト   
+     　    </a>
     　    </li>
     　   <% else %>
     　   <li class="nav-item">

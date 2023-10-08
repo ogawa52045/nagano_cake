@@ -1,31 +1,30 @@
 <br>
-<div class="container px-5 px-sm-0">
- <div class="row">
-  <div class="mx-auto">
-   <div class="col-6 bg-light text-black">商品一覧</div><br>
-   <%= @items.each do |item| %>
-   <div class="table-group">
-    <div class="col-10">
-     <table class="table table-borderless">
-      <thead class="thead-light">
-       <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-       </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= item.id %></td>
-          <td><%= item.name %></td>
-          <td><%= item.price %></td>
-        </tr>
-      </tbody>
-     </table>
-    </div>
-   </div>
-      <% end %>
-      
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col-6 bg-light text-black">商品一覧</div><br>
+      <div class="table-group">
+        <div class="col-12">
+          <table class="table table-borderless">
+            <thead class="thead-light">
+              <tr>
+                <th>商品ID</th>
+                <th>商品名</th>
+                <th>税抜価格</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @items.each do |item| %>
+                <tr>
+                  <td><%= item.id %></td>
+                  <td><%= link_to item.name, admin_item_path(item.id) %></td>
+                  <td><%= item.price %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-</div>  
+</div>
