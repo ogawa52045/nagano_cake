@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, only: [:new, :create, :index, :show, :edit]
+    resources :items, only: [:new, :create, :index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   devise_for :admin, skip: [:registrations, :passwords],  controllers: {

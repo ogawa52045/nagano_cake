@@ -1,0 +1,32 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col-6 bg-light text-black">会員一覧</div><br>
+      <div class="table-group">
+        <div class="col-12">
+          <table class="table table-borderless">
+            <thead class="thead-light">
+              <tr>
+                <th>会員ID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @customers.each do |customer| %>
+                <tr>
+                  <td><%= customer.id %></td>
+                  <td><%= link_to "#{customer.last_name} #{customer.first_name}", admin_customer_path(customer.id) %></td>
+                  <td><%= customer.email %></td>
+                  <td><%= customer.is_deleted %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
