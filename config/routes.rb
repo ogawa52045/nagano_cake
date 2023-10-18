@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   scope module: :public do
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create, :new]
-    resources :customers, only: [:show, :edit]
+    resources :cart_items, only: [:index, :create, :new, :update] do
+     member do
+       patch 'increase'
+       patch 'decrease'
+     end
+    end
+    get "customers/" => "customers#show"
+    get "customers/information/edit" => "customers#edit"
+    patch "customers/" => "customers#update"
   end
 
   namespace :admin do

@@ -2,15 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <div class="col-7 bg-light text-black"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</div><br>
-      <%= form_with model: @customer, url: admin_customer_path(@customer do |f| %>
+      <div class="col-7 bg-light text-black">会員情報編集</div><br>
+      <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
       
-      <div class="form-group">
-        <div class="row">
-          <div class="col-4">会員ID</div>
-          <div class="col-8"><%= @customer.id %></div>
-        </div>
-      </div>
       <div class="form-group">
         <div class="row">
           <div class="col-4">氏名</div>
@@ -47,12 +41,6 @@
         <div class="row">
           <div class="col-4">メールアドレス</div>
           <div class="col-8"><%= f.text_field :email %></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-4">会員ステータス</div>
-          <div class="col-8"><%= @customer.is_deleted %></div>
         </div>
       </div>
       <div class="form-group">
