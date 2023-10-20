@@ -3,6 +3,9 @@
   <div class="row">
     <div class="mx-auto">
       <div class="col-6 bg-light text-black">ショッピングカート</div><br>
+      <div class="text-right">
+    　  <%= link_to "カートを空にする", all_destroy_cart_items_path, method: :delete, class: "btn btn-danger btn-sm" %>
+      </div>
       <div class="table-group">
         <div class="col-12">
           <table class="table table-borderless">
@@ -40,7 +43,9 @@
                     <% subtotal = ((cart_item.item.price*cart_item.amount)*1.1).to_i %>
                     <%= subtotal %>
                   </td>
-                  <td>削除する</td>
+                  <td>
+                    <%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %>
+                  </td>
                 </tr>
                 　<% total += subtotal %>
               <% end %>
