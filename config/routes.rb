@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get "customers/" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/" => "customers#update"
+    get '/customers/check' => 'customers#check'
+    patch '/customers/withdraw' => 'customers#withdraw'
   end
 
   namespace :admin do
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'top' => 'homes#top'
   get 'about' => 'homes#about'
+  root to: 'homes#top'
 
 
 end
