@@ -1,0 +1,41 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col-7 bg-light text-black">注文情報入力</div><br>
+      <%= form_with model: @order, url: orders_path, local: true do |f| %>
+
+      <div class="form-group">
+        <div class="row">
+          <h6 class= "col-10">支払方法</h6><br>
+        </div>
+        <div class= "row">
+          <div class="col-10">
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+            <%= label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+            <%= label :payment_method_credit_card, Order.payment_methods_i18n[:transfer] %>
+          </div>
+        </div>
+        <div class="form-group">
+        <div class="row">
+          <h6 class= "col-10">お届け先</h6>
+        <div class="row">
+          <div class="col-10">
+           <%= current_customer.postal_code %>
+           <%= current_customer.address %>
+          </div>
+        </div>
+        </div>
+        </div>
+      <div class="form-group">
+       <div class="row">
+        <div class="col-4 offset-3"><button class="btn btn-primary">確認画面へ進む</button></div>
+       </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
