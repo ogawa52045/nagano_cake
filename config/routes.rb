@@ -6,12 +6,13 @@ Rails.application.routes.draw do
         delete "all_destroy"
       end
     end
-     resources :orders, only: [:new, :create]
+    resources :orders, only: [:new, :create]
     get "customers/" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/" => "customers#update"
     get '/customers/check' => 'customers#check'
     patch '/customers/withdraw' => 'customers#withdraw'
+    post '/orders/confirm' => 'orders#confirm'
   end
 
   namespace :admin do
