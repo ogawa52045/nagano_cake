@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get '/customers/check' => 'customers#check'
     patch '/customers/withdraw' => 'customers#withdraw'
     post '/orders/confirm' => 'orders#confirm'
+    get '/orders/success' => 'orders#success'
+    post '/orders/place_order' => 'orders#place_order'
   end
 
   namespace :admin do
