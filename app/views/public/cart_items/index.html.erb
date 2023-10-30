@@ -49,15 +49,27 @@
                 </tr>
                 　<% total += subtotal %>
               <% end %>
-            <% end %>
-               <tr>
-                 <th>合計金額</th>
-                 <td><%= total %></td>
-               </tr>
-            </tbody>
+            　<% end %>
+          　</tbody>
+          </table>
+         </div>
+        </div>
+        <div class= "row">
+          <btn class="col-4 btn-left">
+          <a href="root_path" class="btn btn-primary">買い物を続ける</a>
+          </btn>
+          <table class="col-4 table table-bordered">
+           <tr>
+            <th>合計金額</th>
+            <td><%= total %></td>
+           </tr>
           </table>
         </div>
-      </div>
+        <div class = "row">
+          <btn class="col-8 mx-auto">
+            <a href="/orders/new" class="btn btn-success">情報入力に進む</a>
+          </btn>
+        </div>
+       </div>
     </div>
   </div>
-</div>

@@ -15,12 +15,28 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
-    @order = Order.new(order_params)
-    @order.save
+    order = Order.new(order_params)
+    order.save
+    @cart_items = current_customer.cart_items.all
+    
+    @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
+      @order_details.order_id = order.id
+      @order_details.item_id = cart_item.item.id
+      @order_details.purchase_price = (cart_item.item.price*1.1).floor
+      @order_details.amount = cart_item.amount
+      @order_details.save
+    end
+    
+    CartItem.destroy_all
+    redirect_to orders_success_path
+  end
+  
+  def success
   end
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :amount)
   end
 end
