@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    get '/admin' => 'orders#index'
+    root to: 'orders#index'
   end
 
   devise_for :admin, skip: [:registrations, :passwords],  controllers: {

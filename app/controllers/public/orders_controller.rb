@@ -15,10 +15,11 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
-    order = Order.new(order_params)
-    order.save
+    @order = Order.new(order_params)
+    @order.save
     @cart_items = current_customer.cart_items.all
-    
+    if @order.save
+    @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
       @order_details = OrderDetail.new
       @order_details.order_id = order.id
@@ -27,9 +28,11 @@ class Public::OrdersController < ApplicationController
       @order_details.amount = cart_item.amount
       @order_details.save
     end
-    
     CartItem.destroy_all
     redirect_to orders_success_path
+    else
+      render "new"
+    end
   end
   
   def success
