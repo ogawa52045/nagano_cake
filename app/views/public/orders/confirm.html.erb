@@ -85,15 +85,13 @@
   </div>
   <div class="row">
    <div class="mx-auto">
-    <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-    <%= f.hidden_field :member_id %>
-    <%= f.hidden_field :postage %>
-    <%= f.hidden_field :total_price %>
-    <%= f.hidden_field :payment_method %>
-    <%= f.hidden_field :name %>
-    <%= f.hidden_field :address %>
-    <%= f.hidden_field :postal_code %>
-    <%= f.hidden_field :status %>
+    <%= form_with model: @order_new, url: orders_path, local: true do |f| %>
+    <%= f.hidden_field :customer_id, value: current_customer.id %>
+    <%= f.hidden_field :postage, value: 800 %>
+    <%= f.hidden_field :total_price, value: @order.total_price %>
+    <%= f.hidden_field :name, value: @order.name %>
+    <%= f.hidden_field :address, value: @order.address %>
+    <%= f.hidden_field :postal_code, value: @order.postal_code %>
     <div class="col-10 offset-3"><button class="btn btn-success">注文を確定する</button></div>
     <% end %>
    </div>

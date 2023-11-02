@@ -52,7 +52,16 @@
       <div class="form-group">
         <div class="row">
           <div class="col-4">会員ステータス</div>
-          <div class="col-8"><%= @customer.is_deleted %></div>
+          <div class="col-8">
+           <div class="custom-control custom-radio custom-control-inline">
+            <%= f.radio_button :is_deleted, false, checked: @customer.is_deleted == false, class: 'custom-control-input', id: 'status-active' %>
+            <%= f.label :is_deleted, '有効', class: 'custom-control-label', for: 'status-active' %>
+           </div>
+           <div class="custom-control custom-radio custom-control-inline">
+            <%= f.radio_button :is_deleted, true, checked: @customer.is_deleted == true, class: 'custom-control-input', id: 'status-deleted' %>
+            <%= f.label :is_deleted, '退会済み', class: 'custom-control-label', for: 'status-deleted' %>
+           </div>
+          </div>
         </div>
       </div>
       <div class="form-group">

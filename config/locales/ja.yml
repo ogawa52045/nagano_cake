@@ -1,4 +1,7 @@
 ja:
+  date:
+    formats:
+      default: "%Y-%m-%d"
   enums:
     order:
       payment_method:

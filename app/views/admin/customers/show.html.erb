@@ -40,12 +40,15 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td><%= @customer.is_deleted %></td>
+          <td><%= @customer.customer_status %></td>
         </tr>
       </table>
-      <div class="col-4 mx-auto">
+      <div class="col-10 mx-auto">
         <%= link_to edit_admin_customer_path(@customer.id), class: "btn btn-success" do %>
           編集する
+        <% end %>
+        <%= link_to admin_orders_path, class: "btn btn-primary" do %>
+          注文履歴一覧を見る
         <% end %>
       </div>
     </div>
