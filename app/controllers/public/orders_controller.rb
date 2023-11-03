@@ -32,7 +32,7 @@ class Public::OrdersController < ApplicationController
       @order_details.save!
     end
     CartItem.destroy_all
-    redirect_to orders_success_path(@order)
+    redirect_to order_success_path
   else
     render :confirm
   end
@@ -49,7 +49,7 @@ class Public::OrdersController < ApplicationController
   
   def success
   end
-  
+
   private
   def order_params
   params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :amount, :total_price)
