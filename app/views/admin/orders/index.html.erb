@@ -1,34 +1,29 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
-      <div class="col-6 bg-light text-black">注文履歴一覧</div><br>
-      <div class="table-group">
-        <div class="col-12">
-          <table class="table table-borderless">
-            <thead class="thead-light">
-              <tr>
-                <th>購入日時</th>
-                <th>購入者</th>
-                <th>注文個数</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @orders.each do |order| %>
-                <tr>
-                  <td>
-                    <%= link_to admin_order_path(order.id) do %>
-                     <%= l order.created_at.to_date %>
-                    <% end %>
-                  </td>
-                  <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-                  <td><%= order.order_details.sum(:amount) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+   <div class="col-6 bg-light text-black">注文履歴一覧</div>
+     <table class="table table-borderless col-8">
+      <thead class="thead-light">
+       <tr>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+       </tr>
+      </thead>
+      <tbody>
+       <% @orders.each do |order| %>
+        <tr>
+         <td>
+          <%= link_to admin_order_path(order.id) do %>
+          <%= l order.created_at.to_date %>
+          <% end %>
+         </td>
+         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+         <td><%= order.order_details.sum(:amount) %></td>
+        </tr>
+       <% end %>
+      </tbody>
+     </table>
     </div>
   </div>
-</div>
+

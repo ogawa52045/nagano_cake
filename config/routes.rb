@@ -6,7 +6,6 @@ Rails.application.routes.draw do
         delete "all_destroy"
       end
     end
-    resources :orders, only: [:new, :create, :index, :show]
     get "customers/" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/" => "customers#update"
@@ -15,13 +14,13 @@ Rails.application.routes.draw do
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/success' => 'orders#success', as: 'order_success'
     post '/orders/place_order' => 'orders#place_order'
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show]
-    root to: 'orders#index'
   end
 
   devise_for :admin, skip: [:registrations, :passwords],  controllers: {

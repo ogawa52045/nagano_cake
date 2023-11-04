@@ -24,7 +24,7 @@
           </ul>
         </td>
         <td><%= order.total_price %></td>
-        <td><%= link_to "表示する", orders_path(@order), class: "btn btn-primary" %></td>
+        <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
       </tr>
       <% end %>
     </table>
