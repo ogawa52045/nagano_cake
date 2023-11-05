@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :cart_item_nill, only: [:new, :confirm]
+
 
   def new
     @order = Order.new
@@ -11,7 +13,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order.postal_code = current_customer.postal_code
     @order.address = current_customer.address
-    @order.name = current_customer.first_name + current_customer.last_name
+    @order.name = current_customer.last_name + current_customer.first_name
     @order_new = Order.new
     render :confirm
   end
@@ -55,7 +57,7 @@ class Public::OrdersController < ApplicationController
   params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :amount, :total_price)
   end
   
-  def cartitem_nill
+  def cart_item_nill
     cart_items = current_customer.cart_items
     if cart_items.blank?
       redirect_to cart_items_path
