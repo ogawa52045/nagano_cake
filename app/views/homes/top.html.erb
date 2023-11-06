@@ -21,9 +21,13 @@
       <div class="col-md-3 mb-4">
         <div class="card">
          <% if item.image.present? %>
+          <%= link_to item_path(item.id) do %>
           <%= image_tag item.image, width: 250, height: 200 %>
+          <% end %>
       　 <% else %>
+      　  <%= link_to item_path(item.id) do %>
       　   <%= image_tag 'no_image', width: 250, height: 200 %>
+      　  <% end %>
          <% end %>
         <div class="card-body">
          <h5 class="card-title"><%= item.name %></h5>

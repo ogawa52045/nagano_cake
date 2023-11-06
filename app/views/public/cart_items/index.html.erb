@@ -19,7 +19,7 @@
               </tr>
               <% total = 0 %>
             </thead>
-            
+
             <tbody>
               <% if current_customer.cart_items.present? %>
               <% @cart_items.each do |cart_item| %>
@@ -55,9 +55,9 @@
          </div>
         </div>
         <div class= "row">
-          <btn class="col-4 btn-left">
-          <a href="/items" class="btn btn-primary">買い物を続ける</a>
-          </btn>
+          <div class="col-4 text-left">
+          <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+          </div>
           <table class="col-4 table table-bordered">
            <tr>
             <th>合計金額</th>

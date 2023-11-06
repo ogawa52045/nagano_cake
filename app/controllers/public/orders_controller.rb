@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :cart_item_nill, only: [:new, :confirm]
 
-
   def new
     @order = Order.new
     @order.postal_code = current_customer.postal_code
